@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff4fa3">
+<title>SUNSHYNE ROLEPLAY</title>
+<style>
+:root{
+  --pink:#ff4fa3;
+  --pink2:#ff8acb;
+  --pink3:#ffb8df;
+  --dark:#0d0810;
+  --dark2:#160c18;
+  --white:#fff;
+  --muted:#cbbbc6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--white);
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,79,163,.20),transparent 28%),
+    radial-gradient(circle at 85% 30%,rgba(255,138,203,.12),transparent 25%),
+    var(--dark);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  backdrop-filter:blur(16px);
+  background:rgba(13,8,16,.72);
+  border-bottom:1px solid rgba(255,138,203,.16);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:2px;font-size:20px}
+.logo span{color:var(--pink)}
+.nav-links{display:flex;gap:26px;color:#eadde6;font-size:14px}
+.nav-links a:hover{color:var(--pink2)}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{
+  min-height:100vh;display:grid;place-items:center;text-align:center;
+  padding:120px 0 70px;position:relative;overflow:hidden;
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border-radius:50%;filter:blur(5px);pointer-events:none;
+}
+.hero:before{width:330px;height:330px;background:rgba(255,79,163,.17);top:18%;left:-120px}
+.hero:after{width:280px;height:280px;background:rgba(255,138,203,.13);right:-80px;bottom:10%}
+.badge{
+  display:inline-block;padding:8px 16px;border:1px solid rgba(255,138,203,.35);
+  border-radius:999px;color:var(--pink3);background:rgba(255,79,163,.08);
+  font-size:12px;letter-spacing:2px;margin-bottom:20px;
+}
+h1{
+  font-size:clamp(45px,9vw,100px);line-height:.95;letter-spacing:5px;
+  text-shadow:0 0 30px rgba(255,79,163,.38);
+}
+h1 span{color:var(--pink)}
+.hero p{max-width:650px;margin:25px auto;color:var(--muted);font-size:17px}
+.buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn{
+  padding:13px 24px;border-radius:12px;font-weight:800;font-size:14px;
+  border:1px solid rgba(255,138,203,.35);transition:.25s;display:inline-block;
+}
+.btn-primary{background:var(--pink);box-shadow:0 0 28px rgba(255,79,163,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 38px rgba(255,79,163,.55)}
+.btn-outline{background:rgba(255,255,255,.03)}
+.btn-outline:hover{border-color:var(--pink);color:var(--pink2);transform:translateY(-3px)}
+section{padding:95px 0}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title small{color:var(--pink2);letter-spacing:3px;font-weight:bold}
+.section-title h2{font-size:38px;margin-top:7px}
+.section-title p{color:var(--muted);margin:10px auto;max-width:620px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{
+  background:linear-gradient(145deg,rgba(255,79,163,.10),rgba(255,255,255,.025));
+  border:1px solid rgba(255,138,203,.16);border-radius:20px;padding:30px;
+  box-shadow:0 15px 50px rgba(0,0,0,.18);
+}
+.card h3{margin-bottom:10px}
+.card p{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.stat{text-align:center;padding:22px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06)}
+.stat strong{display:block;color:var(--pink2);font-size:27px}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.member{text-align:center;padding:27px 16px}
+.avatar{
+  width:76px;height:76px;margin:0 auto 15px;border-radius:50%;
+  display:grid;place-items:center;font-weight:900;font-size:25px;
+  background:linear-gradient(135deg,var(--pink),#9d286a);
+  box-shadow:0 0 28px rgba(255,79,163,.25);
+}
+.member h3{font-size:17px}
+.role{font-size:12px;color:var(--pink2);letter-spacing:1px;margin:3px 0 8px}
+.member p{font-size:13px;color:var(--muted)}
+.map-box{
+  min-height:330px;border-radius:25px;display:grid;place-items:center;text-align:center;
+  border:1px solid rgba(255,138,203,.18);
+  background:
+    linear-gradient(rgba(255,79,163,.07),rgba(255,79,163,.02)),
+    repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 1px,transparent 1px 20px);
+}
+.map-box .pin{font-size:55px;filter:drop-shadow(0 0 20px rgba(255,79,163,.55))}
+.map-box h3{font-size:27px;margin:8px}
+.map-box p{color:var(--muted);max-width:500px;margin:auto}
+.cta{text-align:center;padding:70px 25px;border-radius:28px;background:linear-gradient(135deg,rgba(255,79,163,.17),rgba(255,255,255,.025));border:1px solid rgba(255,138,203,.18)}
+.cta h2{font-size:40px;margin-bottom:10px}
+.cta p{color:var(--muted);margin-bottom:25px}
+footer{padding:35px 0;text-align:center;color:#988994;border-top:1px solid rgba(255,255,255,.07);font-size:13px}
+@media(max-width:800px){
+  .nav-links{display:none}.menu{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;padding:20px;background:#100a12;border-bottom:1px solid rgba(255,138,203,.16);gap:16px}
+  .about-grid{grid-template-columns:1fr}
+  .team{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .stats{grid-template-columns:1fr}
+  .team{grid-template-columns:1fr 1fr}
+  .section-title h2{font-size:31px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">SUNS<span>HYNE</span></a>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#team">Management</a>
+      <a href="#map">Map</a>
+      <a href="#community">Community</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container">
+    <div class="badge">ROBLOX ROLEPLAY CITY</div>
+    <h1>SUNS<span>HYNE</span><br>ROLEPLAY</h1>
+    <p>Selamat datang di SUNSHYNE Roleplay — tempat di mana setiap pemain memiliki cerita, karakter, dan perjalanan mereka sendiri.</p>
+    <div class="buttons">
+      <!-- GANTI LINK DI BAWAH -->
+      <a class="btn btn-primary" href="https://www.roblox.com/share?code=ed93c4502587154e86c7e9621bcc9dd0&type=ExperienceDetails&stamp=1778154892839/" target="_blank">🎮 PLAY ON ROBLOX</a>
+      <a class="btn btn-outline" href="https://discord.gg/cd6FFwXyn" target="_blank">💬 JOIN DISCORD</a>
+      <a class="btn btn-primary" href="https://www.roblox.com/communities/734824338/Shyne-Studio-Community#!/about" target="_blank">🗨️ JOIN COMMUNITY</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <small>WELCOME TO</small>
+      <h2>About SUNSHYNE</h2>
+      <p>Bangun karakter, temukan teman, dan ciptakan cerita yang tidak terlupakan di kota kami.</p>
+    </div>
+    <div class="about-grid">
+      <div class="card">
+        <h3>🌸 Our City</h3>
+        <p>SUNSHYNE Roleplay menghadirkan dunia roleplay Roblox yang dibuat untuk komunitas yang ingin bersosialisasi, berkarakter, dan menikmati kehidupan kota virtual.</p>
+        <div class="stats">
+          <div class="stat"><strong>80/80</strong>City</div>
+          <div class="stat"><strong>RP</strong>Community</div>
+          <div class="stat"><strong>∞</strong>Stories</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>✨ Our Vision</h3>
+        <p>Menciptakan lingkungan roleplay yang seru, aman, kreatif, dan nyaman untuk seluruh warga SUNSHYNE.</p>
+        <br>
+        <p><b>“Your Story. Your City. Your SUNSHYNE.”</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="container">
+    <div class="section-title">
+      <small>THE PEOPLE BEHIND THE CITY</small>
+      <h2>Management Team</h2>
+      <p>Kenali tim yang membantu menjaga SUNSHYNE tetap berjalan.</p>
+    </div>
+    <div class="team">
+      <!-- GANTI NAMA & JABATAN SESUAI TEAM KAMU -->
+      <div class="card member"><div class="avatar">F</div><h3>FOUNDER</h3><div class="role">JOJO & JOYO</div><p>Memimpin dan mengembangkan SUNSHYNE Roleplay.</p></div>
+      <div class="card member"><div class="avatar">O</div><h3>DEVELOPER</h3><div class="role">JOJO & JOYO</div><p>Mengembangkan sistem dan map SUNSHYNE</p></div>
+      <div class="card member"><div class="avatar">M</div><h3>MANAGEMENT TEAM</h3><div class="role">S,K,D,P,L,L,R,C</div><p>Membantu menjaga ketertiban komunitas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="map">
+  <div class="container">
+    <div class="section-title">
+      <small>EXPLORE THE CITY</small>
+      <h2>Our Roblox Map</h2>
+      <p>Siap masuk kota dan memulai cerita kamu?</p>
+    </div>
+    <div class="map-box">
+      <div>
+        <div class="pin">📍</div>
+        <h3>SUNSHYNE ROLEPLAY</h3>
+        <p>Klik tombol di bawah untuk langsung menuju game Roblox SUNSHYNE Roleplay.</p>
+        <div class="buttons">
+          <!-- GANTI DENGAN LINK GAME ROBLOX KAMU -->
+          <a class="btn btn-primary" href="https://www.roblox.com/share?code=ed93c4502587154e86c7e9621bcc9dd0&type=ExperienceDetails&stamp=1778154892839" target="_blank">OPEN ROBLOX MAP</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="container">
+    <div class="cta">
+      <h2>Join SUNSHYNE 💗</h2>
+      <p>Bergabunglah dengan warga lainnya dan mulai cerita roleplay kamu hari ini.</p>
+      <div class="buttons">
+        <!-- GANTI DENGAN LINK DISCORD KAMU -->
+        <a class="btn btn-primary" href="https://discord.gg/QftcQSPjj" target="_blank">JOIN DISCORD</a>
+        <!-- GANTI DENGAN LINK ROBLOX KAMU -->
+        <a class="btn btn-outline" href="https://www.roblox.com/share?code=ed93c4502587154e86c7e9621bcc9dd0&type=ExperienceDetails&stamp=1778154892839" target="_blank">PLAY ROBLOX</a>
+        <a class="btn btn-outline" href="https://www.roblox.com/communities/734824338/Shyne-Studio-Community#!/about" target="_blank">JOIN COMMUNITY</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SUNSHYNE ROLEPLAY • All Rights Reserved.
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+});
+</script>
+</body>
+</html>
